@@ -1,0 +1,17 @@
+.socialComponent {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 180px;
+  background-image: url('../img/pattern-hills.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 80%;
+  border: 2px solid green;
+}
+
+.socialContainer {
+  border: 2px solid red;
+  display: flex;
+  color: #fff;
+}
