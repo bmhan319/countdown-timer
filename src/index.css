@@ -36,5 +36,12 @@ body {
   height: 100%;
   background-image: url('./img/bg-stars.svg');
   background-size: 270%;
-  background-position: center;
+  background-position: top;
+}
+
+@media screen and (min-width: 1440px) {
+  .componentContainer {
+    background-size: 100%;
+    background-position: top;
+  }
 }

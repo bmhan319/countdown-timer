@@ -17,7 +17,7 @@
 }
 
 .topTimer {
-  opacity: .7;
+  opacity: .5;
 }
 
 .botTimer {
@@ -34,17 +34,16 @@
 .timerTop {
   left: 50%;
   bottom: 0;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, 49%);
   opacity: 1;
 }
 
 .timerBot {
   left: 50%;
   top: 0;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -51%);
   opacity: 1;
 }
-
 
 .timeText {
   color: var(--Blue);
@@ -52,4 +51,31 @@
   font-size: .5em;
   font-weight: 500;
   letter-spacing: 2px;
+}
+
+@media screen and (min-width: 1440px) {
+  .timeContainer {
+    margin-bottom: 28px;
+  }
+
+  .timerBG {
+    width: 150px;
+    height: 70px;
+    border-radius: 8px;
+  }
+
+  .botTimer {
+    box-shadow: 0 10px 0 0 var(--BlackBlue);
+  }
+  
+  .timer {
+    font-size: 5em;
+    font-weight: 600;
+  }
+
+  .timeText {
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 6px;
+  }
 }

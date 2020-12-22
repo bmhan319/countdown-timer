@@ -1,6 +1,8 @@
 .mainComponent {
   width: 100%;
-  padding: 142px 24px;  /* media query 140px */
+  max-width: 690px;
+  margin: 0 auto;
+  padding: 142px 24px;
 }
 
 .heading {
@@ -11,4 +13,16 @@
   letter-spacing: 5px;
   line-height: 24px;
   margin-bottom: 54px;
+}
+
+@media screen and (min-width: 1440px) {
+  .mainComponent {
+    padding: 138px 24px; 
+  }
+
+  .heading {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 108px;
+  }
 }

@@ -30,3 +30,9 @@
 .socialIcon:hover {
   fill: var(--Red);
 }
+
+@media screen and (min-width: 1440px) {
+  .socialComponent {
+    height: 200px;
+  }
+}
