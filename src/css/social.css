@@ -2,16 +2,17 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 180px;
+  height: 170px;   /* media query 200px */
   background-image: url('../img/pattern-hills.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 80%;
-  border: 2px solid green;
+  background-position: 80% top;
+  border: 2px solid red;
+
 }
 
 .socialContainer {
-  border: 2px solid red;
+  border: 2px solid green;
   display: flex;
   color: #fff;
 }

@@ -1,0 +1,69 @@
+.timerComponent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timeContainer {
+  margin-bottom: 12px;
+}
+
+.timerBG {
+  background-color: var(--DarkBlue);
+  width: 66px;
+  height: 32px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.topTimer {
+  opacity: .8;
+}
+
+.midTimer {
+  height: 2px;
+  width: 60px;
+  margin: 0 auto;
+  opacity: .7;
+}
+
+.botTimer {
+  box-shadow: 0 6px 0 0 var(--BlackBlue);
+}
+
+.timer {
+  color: var(--Red);
+  position: absolute;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+.timerTop {
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 52%);
+  opacity: 1;
+}
+
+.timerMid {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  z-index: 10;
+}
+
+.timerBot {
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -52%);
+  opacity: 1;
+}
+
+
+.timeText {
+  color: var(--Blue);
+  text-align: center;
+  font-size: .5em;
+  letter-spacing: 2px;
+}
