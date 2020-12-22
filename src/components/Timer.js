@@ -4,6 +4,7 @@ export default class Timer extends Component {
   render() {
     return (
       <div className="timerComponent">
+
         <div className="daysContainer">
           <div className="timeContainer daysTimer">
             <div className="timerBG topTimer">
@@ -63,6 +64,7 @@ export default class Timer extends Component {
           </div>
           <p className="timeText secsText">SECONDS</p>
         </div>
+        
       </div>
     )
   }

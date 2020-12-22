@@ -17,18 +17,18 @@
 }
 
 .topTimer {
-  opacity: .8;
+  opacity: .7;
 }
 
 .midTimer {
   height: 2px;
   width: 60px;
   margin: 0 auto;
-  opacity: .7;
+  opacity: .6;
 }
 
 .botTimer {
-  box-shadow: 0 6px 0 0 var(--BlackBlue);
+  box-shadow: 0 4px 0 0 var(--BlackBlue);
 }
 
 .timer {
