@@ -10,9 +10,6 @@ export default class Timer extends Component {
             <div className="timerBG topTimer">
               <p className="timer timerTop timerDay">08</p>
             </div>
-            <div className="timerBG midTimer">
-              <p className="timer timerMid timerDay">08</p>
-            </div>
             <div className="timerBG botTimer">
               <p className="timer timerBot timerDay">08</p>
             </div>
@@ -24,9 +21,6 @@ export default class Timer extends Component {
           <div className="timeContainer hrsTimer">
             <div className="timerBG topTimer">
               <p className="timer timerTop timerDay">23</p>
-            </div>
-            <div className="timerBG midTimer">
-              <p className="timer timerMid timerDay">23</p>
             </div>
             <div className="timerBG botTimer">
               <p className="timer timerBot timerDay">23</p>
@@ -40,9 +34,6 @@ export default class Timer extends Component {
             <div className="timerBG topTimer">
               <p className="timer timerTop timerDay">55</p>
             </div>
-            <div className="timerBG midTimer">
-              <p className="timer timerMid timerDay">55</p>
-            </div>
             <div className="timerBG botTimer">
               <p className="timer timerBot timerDay">55</p>
             </div>
@@ -54,9 +45,6 @@ export default class Timer extends Component {
           <div className="timeContainer secsTimer">
             <div className="timerBG topTimer">
               <p className="timer timerTop timerDay">41</p>
-            </div>
-            <div className="timerBG midTimer">
-              <p className="timer timerMid timerDay">41</p>
             </div>
             <div className="timerBG botTimer">
               <p className="timer timerBot timerDay">41</p>

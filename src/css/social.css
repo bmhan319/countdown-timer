@@ -19,7 +19,8 @@
 }
 
 .socialIconContainer {
-margin-right: 32px;
+  margin-right: 32px;
+  cursor: pointer;
 }
 
 .socialInstagram {

@@ -10,21 +10,14 @@
 .timerBG {
   background-color: var(--DarkBlue);
   width: 66px;
-  height: 32px;
-  border-radius: 4px;
+  height: 33px;
+  border-radius: 6px;
   position: relative;
   overflow: hidden;
 }
 
 .topTimer {
   opacity: .7;
-}
-
-.midTimer {
-  height: 2px;
-  width: 60px;
-  margin: 0 auto;
-  opacity: .6;
 }
 
 .botTimer {
@@ -41,22 +34,14 @@
 .timerTop {
   left: 50%;
   bottom: 0;
-  transform: translate(-50%, 52%);
+  transform: translate(-50%, 50%);
   opacity: 1;
-}
-
-.timerMid {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 1;
-  z-index: 10;
 }
 
 .timerBot {
   left: 50%;
   top: 0;
-  transform: translate(-50%, -52%);
+  transform: translate(-50%, -50%);
   opacity: 1;
 }
 
