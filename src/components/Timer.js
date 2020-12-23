@@ -8,9 +8,10 @@ export default class Timer extends Component {
     seconds: 6
   }
 
-  startTimer = () => {
+  timer = () => {
     setInterval( () => {
       this.setState({seconds: this.state.seconds - 1})
+      this.timerCountDown()
       console.log(this.state.days, this.state.hours, this.state.minutes, this.state.seconds)
     }, 1000)
   }
@@ -48,7 +49,7 @@ export default class Timer extends Component {
   }
 
   componentDidMount() {
-    this.startTimer()
+    this.timer()
 
     window.onload = () => {
       //document.querySelectorAll('.bbb').forEach( item => {
@@ -61,7 +62,7 @@ export default class Timer extends Component {
   }
 
   componentDidUpdate () {
-    this.timerCountDown()
+    
   }
     
 
