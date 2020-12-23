@@ -150,3 +150,41 @@ export default class Timer extends Component {
   }
 
 }
+
+
+
+timerCountDown = () => {
+    let secs
+    let mins 
+    let hrs 
+    let days
+    if (this.state.seconds === -1) {
+      this.setState({
+        minutes: this.state.minutes - 1,
+        seconds: 59
+      })
+    }
+
+    if (this.state.minutes === -1) {
+      this.setState({
+        hours: this.state.hours - 1,
+        minutes: 59,
+      })
+    }
+
+    if (this.state.hours === -1) {
+      this.setState({
+        days: this.state.days - 1,
+        hours: 23,
+      })
+    }
+
+    if (this.state.days === -1) {
+      this.setState({
+        days: 10,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+      })
+    }
+  }

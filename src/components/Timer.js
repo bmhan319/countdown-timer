@@ -1,16 +1,71 @@
 import React, { Component } from 'react'
 
 export default class Timer extends Component {
-  componentDidMount() {
-    window.onload = () => {
-      document.querySelectorAll('.bbb').forEach( item => {
-        item.classList.add('onTop')
+  state={
+    days: 10,
+    hours: 0,
+    minutes: 0,
+    seconds: 6
+  }
+
+  startTimer = () => {
+    setInterval( () => {
+      this.setState({seconds: this.state.seconds - 1})
+      console.log(this.state.days, this.state.hours, this.state.minutes, this.state.seconds)
+    }, 1000)
+  }
+
+  timerCountDown = () => {
+    if (this.state.seconds === -1) {
+      this.setState({
+        minutes: this.state.minutes - 1,
+        seconds: 59
       })
-      document.querySelectorAll('.aaa').forEach( item => {
-        item.classList.add('onBot')
+    }
+
+    if (this.state.minutes === -1) {
+      this.setState({
+        hours: this.state.hours - 1,
+        minutes: 59,
+      })
+    }
+
+    if (this.state.hours === -1) {
+      this.setState({
+        days: this.state.days - 1,
+        hours: 23,
+      })
+    }
+
+    if (this.state.days === -1) {
+      this.setState({
+        days: 10,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
       })
     }
   }
+
+  componentDidMount() {
+    this.startTimer()
+
+    window.onload = () => {
+      //document.querySelectorAll('.bbb').forEach( item => {
+      //  item.classList.add('onTop')
+      //})
+      //document.querySelectorAll('.aaa').forEach( item => {
+      //  item.classList.add('onBot')
+      //})
+    }
+  }
+
+  componentDidUpdate () {
+    this.timerCountDown()
+  }
+    
+
+    
 
   render() {
     return (
@@ -20,18 +75,18 @@ export default class Timer extends Component {
           <div className="timeContainer daysTimer">
             <div className="underTimerContainer">
               <div className="timerBG topTimer">
-                <p className="timer timerTop timerDay">07</p>
+                <p className="timer timerTop timerDay">{this.state.days - 1}</p>
               </div>
               <div className="aaa timerBG botTimer botTimerFlip">
-                <p className="timer timerBot timerDay">07</p>
+                <p className="timer timerBot timerDay">{this.state.days - 1}</p>
               </div>
             </div>
             <div className="overTimerContainer">
               <div className="bbb timerBG topTimer topTimerFlip">
-                <p className="timer timerTop timerDay">08</p>
+                <p className="timer timerTop timerDay">{this.state.days}</p>
               </div>
               <div className="timerBG botTimer">
-                <p className="timer timerBot timerDay">08</p>
+                <p className="timer timerBot timerDay">{this.state.days}</p>
               </div>
             </div>
           </div>
@@ -42,18 +97,18 @@ export default class Timer extends Component {
           <div className="timeContainer hrsTimer"> 
             <div className="underTimerContainer">
               <div className="timerBG topTimer">
-                <p className="timer timerTop timerDay">22</p>
+                <p className="timer timerTop timerDay">{this.state.hours - 1}</p>
               </div>
               <div className="aaa timerBG botTimer botTimerFlip">
-                <p className="timer timerBot timerDay">22</p>
+                <p className="timer timerBot timerDay">{this.state.hours - 1}</p>
               </div>
             </div>
             <div className="overTimerContainer">
               <div className="bbb timerBG topTimer topTimerFlip">
-                <p className="timer timerTop timerDay">23</p>
+                <p className="timer timerTop timerDay">{this.state.hours}</p>
               </div>
               <div className="timerBG botTimer">
-                <p className="timer timerBot timerDay">23</p>
+                <p className="timer timerBot timerDay">{this.state.hours}</p>
               </div>
             </div>
           </div>
@@ -64,18 +119,18 @@ export default class Timer extends Component {
           <div className="timeContainer minsTimer">
             <div className="underTimerContainer">
               <div className="timerBG topTimer">
-                <p className="timer timerTop timerDay">54</p>
+                <p className="timer timerTop timerDay">{this.state.minutes - 1}</p>
               </div>
               <div className="aaa timerBG botTimer botTimerFlip">
-                <p className="timer timerBot timerDay">54</p>
+                <p className="timer timerBot timerDay">{this.state.minutes - 1}</p>
               </div>
             </div>
             <div className="overTimerContainer">
               <div className="bbb timerBG topTimer topTimerFlip">
-                <p className="timer timerTop timerDay">55</p>
+                <p className="timer timerTop timerDay">{this.state.minutes}</p>
               </div>
               <div className="timerBG botTimer">
-                <p className="timer timerBot timerDay">55</p>
+                <p className="timer timerBot timerDay">{this.state.minutes}</p>
               </div>
             </div>
           </div>
@@ -86,18 +141,18 @@ export default class Timer extends Component {
           <div className="timeContainer secsTimer">
             <div className="underTimerContainer">
               <div className="timerBG topTimer">
-                <p className="timer timerTop timerDay">40</p>
+                <p className="timer timerTop timerDay">{this.state.seconds - 1}</p>
               </div>
               <div className="aaa timerBG botTimer botTimerFlip">
-                <p className="timer timerBot timerDay">40</p>
+                <p className="timer timerBot timerDay">{this.state.seconds - 1}</p>
               </div>
             </div>
             <div className="overTimerContainer">
               <div className="bbb timerBG topTimer topTimerFlip">
-                <p className="timer timerTop timerDay">41</p>
+                <p className="timer timerTop timerDay">{this.state.seconds}</p>
               </div>
               <div className="timerBG botTimer">
-                <p className="timer timerBot timerDay">41</p>
+                <p className="timer timerBot timerDay">{this.state.seconds}</p>
               </div>
             </div>
           </div>
