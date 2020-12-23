@@ -67,16 +67,24 @@
 
 /* Time Flipping */
 .topTimerFlip {
-  transform: rotateX(0deg);  /* top goes to 90deg */
   transform-origin: 0% 100%;
   transition: all .25s ease 0s;
 }
 
 .botTimerFlip {
-  transform: rotateX(90deg); /* then bottom goes to 0deg */
   transform-origin: 0% 0%;
   z-index: 20;
   transition: all .25s ease .19s;
+}
+
+.offTop {
+  transform: rotateX(0deg);  /* top goes to 90deg */
+  transition: none;
+}
+
+.offBot {
+  transform: rotateX(90deg); /* then bottom goes to 0deg */
+  transition: none;
 }
 
 .onTop {
