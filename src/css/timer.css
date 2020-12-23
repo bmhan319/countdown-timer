@@ -5,6 +5,17 @@
 
 .timeContainer {
   margin-bottom: 14px;
+  position: relative;
+}
+
+.underTimerContainer {
+  
+}
+
+.overTimerContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .timerBG {
@@ -17,7 +28,8 @@
 }
 
 .topTimer {
-  opacity: .5;
+  filter: brightness(80%);
+  z-index: 10;
 }
 
 .botTimer {
@@ -53,6 +65,28 @@
   letter-spacing: 2px;
 }
 
+/* Time Flipping */
+.topTimerFlip {
+  transform: rotateX(0deg);  /* top goes to 90deg */
+  transform-origin: 0% 100%;
+  transition: all .25s ease 0s;
+}
+
+.botTimerFlip {
+  transform: rotateX(90deg); /* then bottom goes to 0deg */
+  transform-origin: 0% 0%;
+  z-index: 20;
+  transition: all .25s ease .19s;
+}
+
+.onTop {
+  transform: rotateX(90deg);
+}
+
+.onBot {
+  transform: rotateX(0deg);
+}
+
 @media screen and (min-width: 1440px) {
   .timeContainer {
     margin-bottom: 28px;
@@ -78,4 +112,5 @@
     font-weight: 600;
     letter-spacing: 6px;
   }
+
 }

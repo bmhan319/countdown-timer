@@ -1,0 +1,152 @@
+import React, { Component } from 'react'
+
+export default class Timer extends Component {
+  render() {
+    return (
+      <div className="timerComponent">
+
+        <div className="daysContainer">
+          <div className="timeContainer daysTimer">
+            <div className="timerBG topTimer">
+              <p className="timer timerTop timerDay">08</p>
+            </div>
+            <div className="timerBG botTimer">
+              <p className="timer timerBot timerDay">08</p>
+            </div>
+          </div>
+          <p className="timeText daysText">DAYS</p>
+        </div>
+
+        <div className="hrsContainer">
+          <div className="timeContainer hrsTimer">
+            <div className="timerBG topTimer">
+              <p className="timer timerTop timerDay">23</p>
+            </div>
+            <div className="timerBG botTimer">
+              <p className="timer timerBot timerDay">23</p>
+            </div>
+          </div>
+          <p className="timeText hrsText">HOURS</p>
+        </div>
+
+        <div className="minsContainer">
+          <div className="timeContainer minsTimer">
+            <div className="timerBG topTimer">
+              <p className="timer timerTop timerDay">55</p>
+            </div>
+            <div className="timerBG botTimer">
+              <p className="timer timerBot timerDay">55</p>
+            </div>
+          </div>
+          <p className="timeText minsText">MINUTES</p>
+        </div>
+
+        <div className="secsContainer">
+          <div className="timeContainer secsTimer">
+            <div className="timerBG topTimer">
+              <p className="timer timerTop timerDay">41</p>
+            </div>
+            <div className="timerBG botTimer">
+              <p className="timer timerBot timerDay">41</p>
+            </div>
+          </div>
+          <p className="timeText secsText">SECONDS</p>
+        </div>
+        
+      </div>
+    )
+  }
+}
+
+
+
+
+
+
+
+
+.timerComponent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timeContainer {
+  margin-bottom: 14px;
+}
+
+.timerBG {
+  background-color: var(--DarkBlue);
+  width: 66px;
+  height: 33px;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.topTimer {
+  filter: brightness(80%);
+  transform: rotateX(0deg);
+  transform-origin: 0% 100%;
+  z-index: 10;
+}
+
+.botTimer {
+  box-shadow: 0 4px 0 0 var(--BlackBlue);
+}
+
+.timer {
+  color: var(--Red);
+  position: absolute;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+.timerTop {
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 49%);
+  opacity: 1;
+}
+
+.timerBot {
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -51%);
+  opacity: 1;
+}
+
+.timeText {
+  color: var(--Blue);
+  text-align: center;
+  font-size: .5em;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+@media screen and (min-width: 1440px) {
+  .timeContainer {
+    margin-bottom: 28px;
+  }
+
+  .timerBG {
+    width: 150px;
+    height: 70px;
+    border-radius: 8px;
+  }
+
+  .botTimer {
+    box-shadow: 0 10px 0 0 var(--BlackBlue);
+  }
+  
+  .timer {
+    font-size: 5em;
+    font-weight: 600;
+  }
+
+  .timeText {
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 6px;
+  }
+
+}
