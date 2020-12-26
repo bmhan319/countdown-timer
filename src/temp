@@ -1,3 +1,6 @@
+3) finish the responsiveness
+
+
 import React, { Component } from 'react'
 
 export default class Timer extends Component {

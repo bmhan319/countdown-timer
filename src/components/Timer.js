@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 export default class Timer extends Component {
+  // state are all time related fields
+  // all time fields have an 'under' field that displays a number underneath when the timer flipper flips down
+  // that underneath number is one less that the current displayed number
   state={
     days: 10,
     daysUnder: 9,
@@ -12,9 +15,12 @@ export default class Timer extends Component {
     secondsUnder: 1
   }
 
+  // Master function that runs the timer
   timer = () => {
-    let logic = true
+    // On/Off switch for the timer Flap position
+    let timerFlapsSet = true
 
+    // Sets state to countdown the timer every second
     setInterval( () => {
       this.setState({
         seconds: this.state.seconds - 1,
@@ -25,36 +31,62 @@ export default class Timer extends Component {
       this.timerCountDown()
     }, 1000)
 
+    // Changes the timerFlaps position to on/off every half second
+    // First half-second triggers animation to drop flaps down
+    // Second half-second resets flaps back to start posistion with animation turned off to avoid seeing flaps move back upward.
     setInterval( ()=> {
-      (logic === true) ? this.flipTimer('.statusSecTop', '.statusSecBot') : this.resetTimer('.statusSecTop', '.statusSecBot')
-      logic = !logic
+      // Runs the timerFlaps for the 'seconds'
+      (timerFlapsSet === true) ? this.flipTimerFlaps('.statusSecTop', '.statusSecBot') : this.resetTimerFlaps('.statusSecTop', '.statusSecBot')
+      timerFlapsSet = !timerFlapsSet
 
-      if (this.state.seconds === 0) {
-        this.flipTimer('.statusMinTop', '.statusMinBot')
-      } else {
-        this.resetTimer('.statusMinTop', '.statusMinBot')
-      }
+      // Runs the timerFlaps for the 'minutes' when 'seconds' reaches 0
+      this.resetTimeFields(this.state.seconds)
 
+      // Runs the timerFlaps for the 'hours' when 'minutes' and 'seconds' reaches 0
       if (this.state.seconds === 0  && this.state.minutes === 0) {
-        this.flipTimer('.statusHrTop', '.statusHrBot')
+        this.flipTimerFlaps('.statusHrTop', '.statusHrBot')
       } else {
-        this.resetTimer('.statusHrTop', '.statusHrBot')
+        this.resetTimerFlaps('.statusHrTop', '.statusHrBot')
       }
 
+      // Runs the timerFlaps for the 'days' when 'hours', 'minutes' and 'seconds' reaches 0
       if (this.state.seconds === 0  && this.state.minutes === 0 && this.state.hours === 0) {
-        this.flipTimer('.statusDaysTop', '.statusDaysBot')
+        this.flipTimerFlaps('.statusDaysTop', '.statusDaysBot')
       } else {
-        this.resetTimer('.statusDaysTop', '.statusDaysBot')
+        this.resetTimerFlaps('.statusDaysTop', '.statusDaysBot')
       }
     }, 500)
   }
 
+  resetTimeFields = (field1, field2, field3) => {
+    (field1 === 0) ? this.flipTimerFlaps('.statusMinTop', '.statusMinBot') : this.resetTimerFlaps('.statusMinTop', '.statusMinBot')
+  }
+
+  // Runs animation to flip the timer flaps down
+  flipTimerFlaps = (top, bottom) => {
+    document.querySelector(top).classList.remove('offTop')
+    document.querySelector(top).classList.add('onTop')
+    document.querySelector(bottom).classList.remove('offBot')
+    document.querySelector(bottom).classList.add('onBot')
+  }
+
+  // Resets timer flaps back to the original position
+  resetTimerFlaps = (top, bottom) => {
+    document.querySelector(top).classList.remove('onTop')
+    document.querySelector(top).classList.add('offTop')
+    document.querySelector(bottom).classList.remove('onBot')
+    document.querySelector(bottom).classList.add('offBot')
+  }
+
+  // Controls what the timer does when the various time fields reach 0
   timerCountDown = () => {
+    // When 'secondsUnder' reaches less than 0, reset to 59
     if (this.state.secondsUnder < 0) {
       this.setState({
         secondsUnder: 59
       })
     }
+    // When 'seconds' reaches less than 0, reset to 59
     if (this.state.seconds < 0) {
       this.setState({
         minutes: this.state.minutes - 1,
@@ -62,11 +94,13 @@ export default class Timer extends Component {
       })
     }
 
+    // When 'minutesUnder' reaches less than 0, reset to 59
     if (this.state.minutesUnder < 0) {
       this.setState({
         minutesUnder: 59
       })
     }
+    // When 'minutes' reaches less than 0, reset to 59
     if (this.state.minutes < 0) {
       this.setState({
         hours: this.state.hours - 1,
@@ -74,11 +108,13 @@ export default class Timer extends Component {
       })
     }
 
+    // When 'hoursUnder' reaches less than 0, reset to 23
     if (this.state.hoursUnder < 0) {
       this.setState({
         hoursUnder: 23
       })
     }
+    // When 'hours' reaches less than 0, reset to 23
     if (this.state.hours < 0) {
       this.setState({
         days: this.state.days - 1,
@@ -86,11 +122,13 @@ export default class Timer extends Component {
       })
     }
 
+    // When 'daysUnder' reaches less than 0, reset to 9
     if (this.state.daysUnder < 0) {
       this.setState({
         daysUnder: 9
       })
     }
+    // When 'days' reaches less than 0, reset all fields back to default
     if (this.state.days < 0) {
       this.setState({
         days: 10,
@@ -103,20 +141,6 @@ export default class Timer extends Component {
         secondsUnder: 59
       })
     }
-  }
-
-  flipTimer = (top, bottom) => {
-    document.querySelector(top).classList.remove('offTop')
-    document.querySelector(top).classList.add('onTop')
-    document.querySelector(bottom).classList.remove('offBot')
-    document.querySelector(bottom).classList.add('onBot')
-  }
-
-  resetTimer = (top, bottom) => {
-    document.querySelector(top).classList.remove('onTop')
-    document.querySelector(top).classList.add('offTop')
-    document.querySelector(bottom).classList.remove('onBot')
-    document.querySelector(bottom).classList.add('offBot')
   }
 
   componentDidMount() {
