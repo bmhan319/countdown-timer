@@ -1,6 +1,6 @@
 .mainComponent {
   width: 100%;
-  max-width: 690px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 142px 24px;
 }
@@ -15,9 +15,10 @@
   margin-bottom: 54px;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 800px) {
   .mainComponent {
     padding: 138px 0px;
+    max-width: 690px;
   }
 
   .heading {

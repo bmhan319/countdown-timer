@@ -31,7 +31,7 @@
   fill: var(--Red);
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 800px) {
   .socialComponent {
     height: 200px;
   }
