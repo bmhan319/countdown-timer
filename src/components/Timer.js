@@ -29,6 +29,16 @@ export default class Timer extends Component {
         daysUnder: this.state.days - 1
       })
       this.timerCountDown()
+
+      // Runs the timerFlaps for the 'minutes' when 'seconds' reaches 0
+      this.resetTimeFields(this.state.seconds === 0, 'Min')
+
+      // Runs the timerFlaps for the 'hours' when 'minutes' and 'seconds' reaches 0
+      this.resetTimeFields(this.state.seconds === 0  && this.state.minutes === 0, 'Hr')
+
+      // Runs the timerFlaps for the 'days' when 'hours', 'minutes' and 'seconds' reaches 0
+      this.resetTimeFields(this.state.seconds === 0  && this.state.minutes === 0 && this.state.hours === 0, 'Days')
+
     }, 1000)
 
     // Changes the timerFlaps position to on/off every half second
@@ -36,30 +46,16 @@ export default class Timer extends Component {
     // Second half-second resets flaps back to start posistion with animation turned off to avoid seeing flaps move back upward.
     setInterval( ()=> {
       // Runs the timerFlaps for the 'seconds'
-      (timerFlapsSet === true) ? this.flipTimerFlaps('.statusSecTop', '.statusSecBot') : this.resetTimerFlaps('.statusSecTop', '.statusSecBot')
+      this.resetTimeFields(timerFlapsSet === true, 'Sec')
+      
+      // Changes the timerFlaps position to on/off
       timerFlapsSet = !timerFlapsSet
-
-      // Runs the timerFlaps for the 'minutes' when 'seconds' reaches 0
-      this.resetTimeFields(this.state.seconds)
-
-      // Runs the timerFlaps for the 'hours' when 'minutes' and 'seconds' reaches 0
-      if (this.state.seconds === 0  && this.state.minutes === 0) {
-        this.flipTimerFlaps('.statusHrTop', '.statusHrBot')
-      } else {
-        this.resetTimerFlaps('.statusHrTop', '.statusHrBot')
-      }
-
-      // Runs the timerFlaps for the 'days' when 'hours', 'minutes' and 'seconds' reaches 0
-      if (this.state.seconds === 0  && this.state.minutes === 0 && this.state.hours === 0) {
-        this.flipTimerFlaps('.statusDaysTop', '.statusDaysBot')
-      } else {
-        this.resetTimerFlaps('.statusDaysTop', '.statusDaysBot')
-      }
     }, 500)
   }
 
-  resetTimeFields = (field1, field2, field3) => {
-    (field1 === 0) ? this.flipTimerFlaps('.statusMinTop', '.statusMinBot') : this.resetTimerFlaps('.statusMinTop', '.statusMinBot')
+  // Controls actions to take once time fields reach 0
+  resetTimeFields = (state, field) => {
+    (state) ? this.flipTimerFlaps(`.status${field}Top`, `.status${field}Bot`) : this.resetTimerFlaps(`.status${field}Top`, `.status${field}Bot`)
   }
 
   // Runs animation to flip the timer flaps down
